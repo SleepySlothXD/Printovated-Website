@@ -102,7 +102,7 @@ nav {
     transition: all 0.3s ease;
     border-radius: 20px;
 }
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .nav-logo {
         width: 120px;
         height: auto;
@@ -195,7 +195,7 @@ nav {
     margin-top: 20px;
     transition: all 0.3s ease-in-out;
 }
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     .home-header {
         flex-direction: column;
         height: auto;
@@ -296,7 +296,7 @@ nav {
     bottom: 0;
     width: 100%;
 }
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     .Under-Construction {
         font-size: 14px;
     }
