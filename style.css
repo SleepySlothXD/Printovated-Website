@@ -45,6 +45,17 @@ nav {
     margin-right: 20px;
     transition: all 0.3s ease-in-out;
 }
+.current-page:hover,
+.nav-link:hover {
+    color: #fff;
+    text-decoration: underline;
+    font-size: 22px;
+}
+.nav-logo:hover,
+.nav-cart:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
 /* Start Popout Menu */
 .popout {
     display: flex;
@@ -139,18 +150,12 @@ nav {
     transform: scale(1.1);
     cursor: pointer;
 }
-/* End Popout Menu */
-.current-page:hover,
-.nav-link:hover {
+.popout-current-page:hover,
+.popout-link:hover {
     color: #fff;
     text-decoration: underline;
-    font-size: 22px;
 }
-.nav-logo:hover,
-.nav-cart:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-}
+/* End Popout Menu */
 /* End Navigation Bar */
 /* Start Home Header */
 .home-header {
@@ -171,6 +176,7 @@ nav {
 }
 .home-header-right {
     color: #fff;
+    width: fit-content;
     max-width: 500px;
     display: flex;
     flex-direction: column;
@@ -180,9 +186,11 @@ nav {
 .home-header-title {
     font-size: 36px;
     margin: 0 0 10px 0;
+    text-align: center;
 }
 .home-header-paragraph {
     font-size: 18px;
+    text-align: center;
 }
 .home-header-button {
     background-color: #000;
@@ -194,6 +202,9 @@ nav {
     border-radius: 20px;
     margin-top: 20px;
     transition: all 0.3s ease-in-out;
+}
+.home-header-button:hover {
+    transform: scale(1.1);
 }
 @media (max-width: 800px) {
     .home-header {
@@ -217,9 +228,6 @@ nav {
         margin-top: 5px;
     }
 }
-.home-header-button:hover {
-    transform: scale(1.1);
-}
 /* End Home Header */
 /* Start About Us Header */
 .about-header {
@@ -228,7 +236,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
-    gap: 0 30px;
+    gap: 0 40px;
 }
 .about-header-image {
     width: 100%;
@@ -244,7 +252,7 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 50px;
+    margin-left: 20px;
     text-align: center;
     border: #fff solid 2px;
     border-radius: 15px;
@@ -254,6 +262,7 @@ nav {
     overflow: hidden;
     max-width: 100%;
     height: auto;
+    min-width: 200px;
 }
 .about-header-title {
     font-size: 36px;
