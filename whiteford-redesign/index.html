@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Whiteford Youth Baseball League — Joliet, IL. Leagues for ages 3–18, registration, schedules, and more." />
+
+    <title>Whiteford | Baseball</title>
+
+    <!-- ============================================================
+         FONTS
+         Google Fonts — Inter (400, 500, 600)
+         ============================================================ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ============================================================
+         STYLES
+         ============================================================ -->
+    <style>
+
+      /* ============================================================
+         RESET
+         ============================================================ */
+
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+
+      /* ============================================================
+         BASE
+         ============================================================ */
+
+      html {
+        font-size: 16px;
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%; /* prevent iOS font inflation */
+      }
+
+      body {
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        background: #111;
+        color: #fff;
+        min-height: 100vh;
+        overflow-x: hidden; /* no horizontal scroll */
+        width: 100%;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      button {
+        font-family: inherit;
+        cursor: pointer;
+      }
+
+
+      /* ============================================================
+         NAV
+         ============================================================ */
+
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0 1.5rem;
+        height: 62px;
+        background: #000;
+        border-bottom: 1px solid #2a2a2a;
+        width: 100%;
+      }
+
+      /* --- Brand / home link ------------------------------------ */
+
+      .nav__brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        flex-shrink: 0;
+      }
+
+      .nav__logo {
+        width: 46px;
+        height: 46px;
+        flex-shrink: 0;
+      }
+
+      .nav__brand-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+      }
+
+      .nav__brand-text .brand-name {
+        font-size: 15px;
+        font-weight: 500;
+        color: #fff;
+        letter-spacing: 0.02em;
+      }
+
+      .nav__brand-text .brand-sub {
+        font-size: 10px;
+        color: #666;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      /* --- Nav links -------------------------------------------- */
+
+      .nav__links {
+        display: flex;
+        gap: 24px;
+      }
+
+      .nav__links a {
+        font-size: 14px;
+        color: #aaa;
+        letter-spacing: 0.02em;
+        transition: color 0.15s;
+      }
+
+      .nav__links a:hover {
+        color: #fff;
+      }
+
+      /* --- Register button -------------------------------------- */
+
+      .nav__register {
+        background: #222;
+        color: #fff;
+        border: none;
+        padding: 9px 20px;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        transition: background 0.15s;
+        flex-shrink: 0;
+        text-decoration: none;
+        display: inline-block;
+        white-space: nowrap;
+      }
+
+      .nav__register:hover {
+        background: #333;
+      }
+
+
+      /* ============================================================
+         HERO
+         ============================================================ */
+
+      .hero {
+        position: relative;
+        height: 540px;
+        overflow: hidden;
+        display: flex;
+        align-items: flex-end;
+        width: 100%;
+      }
+
+      /* Gradient shown while image loads or if it fails */
+      .hero__bg-fallback {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        z-index: 0;
+      }
+
+      .hero__bg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 40%;
+        filter: grayscale(100%) contrast(1.1);
+        z-index: 1;
+      }
+
+      .hero__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.97) 0%,
+          rgba(0, 0, 0, 0.60) 45%,
+          rgba(0, 0, 0, 0.20) 100%
+        );
+        z-index: 2;
+      }
+
+      .hero__content {
+        position: relative;
+        z-index: 3;
+        padding: 0 2rem 3rem;
+        width: 100%;
+      }
+
+      .hero__eyebrow {
+        font-size: 12px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: #aaa;
+        margin-bottom: 14px;
+      }
+
+      .hero__heading {
+        font-size: 48px;
+        font-weight: 500;
+        line-height: 1.1;
+        max-width: 580px;
+        margin-bottom: 18px;
+        color: #fff;
+      }
+
+      .hero__heading em {
+        font-style: normal;
+        font-weight: 400;
+        color: #ccc;
+      }
+
+      .hero__sub {
+        font-size: 17px;
+        color: #999;
+        max-width: 440px;
+        line-height: 1.65;
+        margin-bottom: 28px;
+      }
+
+      /* --- CTA buttons ------------------------------------------ */
+
+      .hero__ctas {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-bottom: 2.2rem;
+      }
+
+      .btn--white {
+        background: #fff;
+        color: #000;
+        border: none;
+        padding: 13px 28px;
+        border-radius: 5px;
+        font-size: 15px;
+        font-weight: 500;
+        transition: background 0.15s;
+        display: inline-block;
+        text-decoration: none;
+      }
+
+      .btn--white:hover {
+        background: #e8e8e8;
+      }
+
+      .btn--outline {
+        background: transparent;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.30);
+        padding: 13px 26px;
+        border-radius: 5px;
+        font-size: 15px;
+        transition: border-color 0.15s;
+        display: inline-block;
+        text-decoration: none;
+      }
+
+      .btn--outline:hover {
+        border-color: rgba(255, 255, 255, 0.65);
+      }
+
+      /* --- Stats row -------------------------------------------- */
+
+      .hero__stats {
+        display: flex;
+        gap: 2.5rem;
+        flex-wrap: wrap;
+        padding-top: 1.8rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.10);
+      }
+
+      .hero__stat-num {
+        font-size: 30px;
+        font-weight: 500;
+        color: #fff;
+      }
+
+      .hero__stat-label {
+        font-size: 11px;
+        color: #666;
+        margin-top: 3px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+
+      /* ============================================================
+         TOURNAMENT
+         ============================================================ */
+
+      .tourney {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+      }
+
+      .tourney__bg-fallback {
+        position: absolute;
+        inset: 0;
+        background: #0a0a0a;
+        z-index: 0;
+      }
+
+      .tourney__bg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 60%;
+        filter: grayscale(100%) contrast(1.1);
+        z-index: 1;
+      }
+
+      .tourney__overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.84);
+        z-index: 2;
+      }
+
+      .tourney__inner {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        padding: 3rem 2rem;
+      }
+
+      .tourney__icon {
+        width: 62px;
+        height: 62px;
+        flex-shrink: 0;
+        border: 1px solid #333;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .tourney__icon svg {
+        width: 32px;
+        height: 32px;
+        fill: #fff;
+      }
+
+      .tourney__text {
+        flex: 1;
+        min-width: 200px;
+      }
+
+      .tourney__tag {
+        font-size: 11px;
+        font-weight: 500;
+        color: #aaa;
+        letter-spacing: 0.10em;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+
+      .tourney__title {
+        font-size: 24px;
+        font-weight: 500;
+        color: #fff;
+        margin-bottom: 8px;
+      }
+
+      .tourney__desc {
+        font-size: 15px;
+        color: #777;
+        line-height: 1.60;
+      }
+
+      .btn--tourney {
+        background: #fff;
+        color: #000;
+        border: none;
+        padding: 12px 22px;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: 500;
+        white-space: nowrap;
+        transition: background 0.15s;
+        display: inline-block;
+        text-decoration: none;
+      }
+
+      .btn--tourney:hover {
+        background: #e0e0e0;
+      }
+
+
+      /* ============================================================
+         NEWS & RESOURCES
+         ============================================================ */
+
+      .content-section {
+        background: #0d0d0d;
+        border-top: 1px solid #1f1f1f;
+        padding: 3rem 2rem;
+        width: 100%;
+      }
+
+      .section__label {
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #555;
+        margin-bottom: 6px;
+      }
+
+      .section__title {
+        font-size: 26px;
+        font-weight: 500;
+        color: #fff;
+        margin-bottom: 1.6rem;
+      }
+
+      /* --- News grid -------------------------------------------- */
+
+      .news-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 14px;
+      }
+
+      .news-card {
+        background: #111;
+        border: 1px solid #222;
+        border-radius: 10px;
+        padding: 1.4rem;
+        display: block;
+        text-decoration: none;
+        color: #fff;
+        transition: border-color 0.15s;
+      }
+
+      .news-card:hover {
+        border-color: #555;
+      }
+
+      .news-card__date {
+        font-size: 11px;
+        color: #555;
+        margin-bottom: 10px;
+      }
+
+      .news-card__title {
+        font-size: 17px;
+        font-weight: 500;
+        color: #fff;
+        margin-bottom: 8px;
+        line-height: 1.35;
+      }
+
+      .news-card__excerpt {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.55;
+      }
+
+      .news-card__tag {
+        display: inline-block;
+        margin-top: 12px;
+        font-size: 10px;
+        padding: 3px 10px;
+        border-radius: 10px;
+        background: #1f1f1f;
+        color: #aaa;
+        letter-spacing: 0.04em;
+      }
+
+      /* --- Resources grid --------------------------------------- */
+
+      .resources-section {
+        margin-top: 3rem;
+      }
+
+      .resources-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        gap: 10px;
+      }
+
+      .resource-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 14px;
+        background: #111;
+        border: 1px solid #222;
+        border-radius: 8px;
+        text-decoration: none;
+        color: #fff;
+        transition: background 0.12s, border-color 0.12s;
+      }
+
+      .resource-item:hover {
+        background: #1a1a1a;
+        border-color: #444;
+      }
+
+      .resource-item__icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 6px;
+        background: #1a1a1a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .resource-item__icon svg {
+        width: 17px;
+        height: 17px;
+        fill: #888;
+      }
+
+      .resource-item__name {
+        font-size: 14px;
+        font-weight: 500;
+        color: #ddd;
+      }
+
+      .resource-item__sub {
+        font-size: 11px;
+        color: #555;
+        margin-top: 1px;
+      }
+
+
+      /* ============================================================
+         REGISTRATION
+         ============================================================ */
+
+      .register-section {
+        background: #000;
+        border-top: 1px solid #1a1a1a;
+        padding: 3rem 2rem;
+        width: 100%;
+      }
+
+      .register-section .section__label {
+        margin-bottom: 6px;
+      }
+
+      .register-section .section__title {
+        margin-bottom: 0.5rem;
+      }
+
+      .register__desc {
+        font-size: 15px;
+        color: #666;
+        max-width: 540px;
+        line-height: 1.65;
+        margin-bottom: 2rem;
+      }
+
+      .register__desc strong {
+        color: #999;
+        font-weight: 500;
+      }
+
+      /* --- Division table --------------------------------------- */
+
+      .register__table-card {
+        background: #0d0d0d;
+        border: 1px solid #222;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 2rem;
+        overflow-x: auto; /* scroll on small screens */
+      }
+
+      .register__table-card table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 520px; /* prevents column squish */
+      }
+
+      .register__table-card th {
+        background: #111;
+        padding: 12px 16px;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #555;
+        text-align: left;
+        border-bottom: 1px solid #222;
+        white-space: nowrap;
+      }
+
+      .register__table-card td {
+        padding: 13px 16px;
+        font-size: 14px;
+        color: #ccc;
+        border-bottom: 1px solid #1a1a1a;
+        vertical-align: middle;
+        white-space: nowrap;
+      }
+
+      .register__table-card tr:last-child td {
+        border-bottom: none;
+      }
+
+      .register__table-card tr:hover td {
+        background: #111;
+      }
+
+      .register__table-card td:first-child {
+        font-weight: 500;
+        color: #fff;
+      }
+
+      /* --- CTA buttons ------------------------------------------ */
+
+      .register__ctas {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .btn--register-primary {
+        background: #fff;
+        color: #000;
+        border: none;
+        padding: 13px 28px;
+        border-radius: 5px;
+        font-size: 15px;
+        font-weight: 500;
+        transition: background 0.15s;
+        display: inline-block;
+        text-decoration: none;
+      }
+
+      .btn--register-primary:hover {
+        background: #e8e8e8;
+      }
+
+      .btn--register-secondary {
+        background: transparent;
+        color: #aaa;
+        border: 1px solid #333;
+        padding: 13px 24px;
+        border-radius: 5px;
+        font-size: 15px;
+        transition: border-color 0.15s, color 0.15s;
+        display: inline-block;
+        text-decoration: none;
+      }
+
+      .btn--register-secondary:hover {
+        border-color: #666;
+        color: #fff;
+      }
+
+      /* --- Fee notes -------------------------------------------- */
+
+      .register__notes {
+        margin-top: 1.5rem;
+        padding: 1.2rem 1.4rem;
+        background: #0d0d0d;
+        border: 1px solid #1f1f1f;
+        border-radius: 8px;
+      }
+
+      .register__notes p {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.65;
+        margin-bottom: 8px;
+      }
+
+      .register__notes p:last-child {
+        margin-bottom: 0;
+      }
+
+      .register__notes strong {
+        color: #999;
+        font-weight: 500;
+      }
+
+
+      /* ============================================================
+         SPONSORS
+         ============================================================ */
+
+      .sponsors-section {
+        background: #000;
+        border-top: 1px solid #1a1a1a;
+        padding: 3rem 2rem;
+        width: 100%;
+      }
+
+      .sponsors-section__label {
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #444;
+        text-align: center;
+        margin-bottom: 1.8rem;
+      }
+
+      .sponsors-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 10px;
+      }
+
+      .sponsor-tile {
+        background: #111;
+        border: 1px solid #1f1f1f;
+        border-radius: 8px;
+        padding: 14px 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        text-decoration: none;
+        min-height: 64px;
+        transition: background 0.15s, border-color 0.15s;
+      }
+
+      .sponsor-tile:hover {
+        background: #1a1a1a;
+        border-color: #444;
+      }
+
+      .sponsor-tile__name {
+        font-size: 12px;
+        font-weight: 500;
+        color: #777;
+        line-height: 1.35;
+        transition: color 0.15s;
+      }
+
+      .sponsor-tile:hover .sponsor-tile__name {
+        color: #ddd;
+      }
+
+
+      /* ============================================================
+         FOOTER
+         ============================================================ */
+
+      .footer {
+        background: #000;
+        border-top: 1px solid #1a1a1a;
+        padding: 1.6rem 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+        width: 100%;
+      }
+
+      .footer__copy {
+        font-size: 12px;
+        color: #444;
+      }
+
+      .footer__links {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .footer__links a {
+        font-size: 12px;
+        color: #444;
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+
+      .footer__links a:hover {
+        color: #aaa;
+      }
+
+
+      /* ============================================================
+         RESPONSIVE — 768px and below
+         ============================================================ */
+
+      @media (max-width: 768px) {
+
+        /* Hide nav text links; keep brand + register */
+        .nav__links {
+          display: none;
+        }
+
+        .nav__brand-text .brand-sub {
+          display: none;
+        }
+
+        /* Hero */
+        .hero {
+          height: auto;
+          min-height: 440px;
+        }
+
+        .hero__content {
+          padding: 0 1.2rem 2.2rem;
+        }
+
+        .hero__heading {
+          font-size: 32px;
+        }
+
+        .hero__sub {
+          font-size: 15px;
+        }
+
+        .hero__stats {
+          gap: 1.6rem;
+        }
+
+        .hero__stat-num {
+          font-size: 24px;
+        }
+
+        /* Tournament */
+        .tourney__inner {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 2rem 1.2rem;
+        }
+
+        /* Sections */
+        .content-section,
+        .register-section,
+        .sponsors-section {
+          padding: 2.2rem 1.2rem;
+        }
+
+        .section__title {
+          font-size: 22px;
+        }
+
+        /* Footer */
+        .footer {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 1.4rem 1.2rem;
+        }
+
+      }
+
+
+      /* ============================================================
+         RESPONSIVE — 480px and below
+         ============================================================ */
+
+      @media (max-width: 480px) {
+
+        .hero__heading {
+          font-size: 28px;
+        }
+
+        .hero__sub {
+          font-size: 14px;
+        }
+
+        .sponsors-grid {
+          grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        }
+
+        .btn--white,
+        .btn--outline,
+        .btn--register-primary,
+        .btn--register-secondary {
+          width: 100%;
+          text-align: center;
+        }
+
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <!-- ============================================================
+         NAV
+         ============================================================ -->
+    <nav class="nav">
+
+      <!--
+        href="/" sends to the site root on any server / Live Server.
+        On a multi-page site this will always take the user back home.
+      -->
+      <a href="/" class="nav__brand" aria-label="Whiteford Baseball — home">
+
+        <!-- Whiteford W logo — place Whiteford_W.png in the same folder as this file -->
+        <img
+          class="nav__logo"
+          src="Whiteford_W.png"
+          alt="Whiteford Baseball"
+          aria-hidden="true"
+        />
+
+        <div class="nav__brand-text">
+          <span class="brand-name">Whiteford Baseball</span>
+          <span class="brand-sub">Joliet, Illinois</span>
+        </div>
+
+      </a>
+
+      <!-- In-page anchor links -->
+      <ul class="nav__links" role="list">
+        <li><a href="#tournament">Tournament</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#register">Register</a></li>
+        <li><a href="#sponsors">Sponsors</a></li>
+      </ul>
+
+      <!-- Opens Sports Connect registration in a new tab -->
+      <a
+        href="https://www.whitefordbaseball.com/Default.aspx?tabid=794242"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="nav__register"
+      >
+        Register
+      </a>
+
+    </nav>
+
+
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <section class="hero" aria-label="Hero">
+
+      <!-- Gradient fallback — always visible until image loads -->
+      <div class="hero__bg-fallback" aria-hidden="true"></div>
+
+      <!--
+        src is intentionally empty here.
+        JS sets it at runtime so the gradient is guaranteed to show
+        first (avoids a flash of broken-image icon).
+      -->
+      <img
+        class="hero__bg"
+        id="hero-img"
+        src=""
+        alt=""
+        aria-hidden="true"
+      />
+
+      <div class="hero__overlay" aria-hidden="true"></div>
+
+      <div class="hero__content">
+
+        <p class="hero__eyebrow">Whiteford Youth Baseball League &nbsp;·&nbsp; Joliet, IL</p>
+
+        <h1 class="hero__heading">
+          Where every kid <em>finds their game.</em>
+        </h1>
+
+        <p class="hero__sub">
+          Youth leagues for ages 3–18. Competitive play, great coaching,
+          and five beautifully maintained grass infield fields.
+        </p>
+
+        <div class="hero__ctas">
+
+          <a
+            href="https://www.whitefordbaseball.com/Default.aspx?tabid=794242"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn--white"
+          >
+            Register for 2026
+          </a>
+
+          <a
+            href="https://www.whitefordbaseball.com/Default.aspx?tabid=942735"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn--outline"
+          >
+            About us
+          </a>
+
+        </div>
+
+        <div class="hero__stats" aria-label="League at a glance">
+
+          <div>
+            <div class="hero__stat-num">6</div>
+            <div class="hero__stat-label">League levels</div>
+          </div>
+
+          <div>
+            <div class="hero__stat-num">3–18</div>
+            <div class="hero__stat-label">Ages served</div>
+          </div>
+
+          <div>
+            <div class="hero__stat-num">5</div>
+            <div class="hero__stat-label">Grass infields</div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ============================================================
+         TOURNAMENT
+         ============================================================ -->
+    <section class="tourney" id="tournament" aria-label="July 4th All-Star Tournament">
+
+      <div class="tourney__bg-fallback" aria-hidden="true"></div>
+
+      <img
+        class="tourney__bg"
+        id="tourney-img"
+        src=""
+        alt=""
+        aria-hidden="true"
+      />
+
+      <div class="tourney__overlay" aria-hidden="true"></div>
+
+      <div class="tourney__inner">
+
+        <div class="tourney__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L14.5 9H22L16.5 13.5L18.5 21L12 16.5L5.5 21L7.5 13.5L2 9H9.5L12 2Z" />
+          </svg>
+        </div>
+
+        <div class="tourney__text">
+          <p class="tourney__tag">Annual Event &nbsp;·&nbsp; Summer 2026</p>
+          <h2 class="tourney__title">July 4th All-Star Tournament</h2>
+          <p class="tourney__desc">
+            Whiteford's signature summer tournament. Top players compete
+            across all divisions in a celebration of baseball and community.
+          </p>
+        </div>
+
+        <a
+          href="https://www.tourneymachine.com/Public/Results/Tournament.aspx?IDTournament=h202512022018451675bb2faa056e746"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn--tourney"
+        >
+          View bracket
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- ============================================================
+         NEWS & RESOURCES
+         ============================================================ -->
+    <section class="content-section" id="news" aria-label="News and resources">
+
+      <!-- News --------------------------------------------------- -->
+      <p class="section__label">Latest</p>
+      <h2 class="section__title">Headlines</h2>
+
+      <div class="news-grid">
+
+        <a
+          href="https://www.whitefordbaseball.com/Default.aspx?tabid=705820&mid=730292&newskeyid=HN1&newsid=561960&ctl=newsdetail"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="news-card"
+        >
+          <p class="news-card__date">Recent</p>
+          <h3 class="news-card__title">Park Clean Up Day</h3>
+          <p class="news-card__excerpt">
+            Help keep Whiteford Park in top shape for the season.
+            All volunteers welcome — every hour counts.
+          </p>
+          <span class="news-card__tag">Community</span>
+        </a>
+
+        <a
+          href="https://www.whitefordbaseball.com/Default.aspx?tabid=705820&mid=730292&newskeyid=HN1&newsid=560383&ctl=newsdetail"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="news-card"
+        >
+          <p class="news-card__date">Spring 2026</p>
+          <h3 class="news-card__title">In-house practices begin</h3>
+          <p class="news-card__excerpt">
+            Starting Sunday, April 8. Report to your team's assigned
+            field and bring your gear.
+          </p>
+          <span class="news-card__tag">Schedule</span>
+        </a>
+
+        <a
+          href="https://www.whitefordbaseball.com/Default.aspx?tabid=705820&mid=730292&newskeyid=HN1&newsid=559544&ctl=newsdetail"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="news-card"
+        >
+          <p class="news-card__date">Feb 28</p>
+          <h3 class="news-card__title">Parents meeting recap</h3>
+          <p class="news-card__excerpt">
+            Key updates on registration, schedules, and what to
+            expect this season.
+          </p>
+          <span class="news-card__tag">Announcement</span>
+        </a>
+
+      </div>
+
+      <!-- Resources ---------------------------------------------- -->
+      <div class="resources-section">
+
+        <p class="section__label" style="margin-bottom: 1.1rem;">Resources</p>
+
+        <div class="resources-grid">
+
+          <a
+            href="https://www.whitefordbaseball.com/portals/7393/docs/shetland rules - 2026.docx"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="resource-item"
+          >
+            <div class="resource-item__icon">
+              <svg viewBox="0 0 20 20"><path d="M4 2h8l4 4v12H4V2zm8 0v4h4" /></svg>
+            </div>
+            <div>
+              <div class="resource-item__name">Shetland rules</div>
+              <div class="resource-item__sub">2026 rulebook</div>
+            </div>
+          </a>
+
+          <a
+            href="https://www.whitefordbaseball.com/portals/7393/docs/pinto rules 2026.docx"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="resource-item"
+          >
+            <div class="resource-item__icon">
+              <svg viewBox="0 0 20 20"><path d="M4 2h8l4 4v12H4V2zm8 0v4h4" /></svg>
+            </div>
+            <div>
+              <div class="resource-item__name">Pinto rules</div>
+              <div class="resource-item__sub">2026 rulebook</div>
+            </div>
+          </a>
+
+          <a
+            href="https://www.whitefordbaseball.com/portals/7393/docs/mustang rules 2026.docx"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="resource-item"
+          >
+            <div class="resource-item__icon">
+              <svg viewBox="0 0 20 20"><path d="M4 2h8l4 4v12H4V2zm8 0v4h4" /></svg>
+            </div>
+            <div>
+              <div class="resource-item__name">Mustang rules</div>
+              <div class="resource-item__sub">2026 rulebook</div>
+            </div>
+          </a>
+
+          <a
+            href="https://www.whitefordbaseball.com/portals/7393/docs/bonco and pony rules 2026.docx"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="resource-item"
+          >
+            <div class="resource-item__icon">
+              <svg viewBox="0 0 20 20"><path d="M4 2h8l4 4v12H4V2zm8 0v4h4" /></svg>
+            </div>
+            <div>
+              <div class="resource-item__name">Bronco / Pony rules</div>
+              <div class="resource-item__sub">2026 rulebook</div>
+            </div>
+          </a>
+
+          <a
+            href="https://www.whitefordbaseball.com/portals/7393/images/whiteford map.jpg"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="resource-item"
+          >
+            <div class="resource-item__icon">
+              <svg viewBox="0 0 20 20">
+                <path d="M10 2C6.7 2 4 4.7 4 8c0 5 6 10 6 10s6-5 6-10
+                  c0-3.3-2.7-6-6-6zm0 8a2 2 0 100-4 2 2 0 000 4z" />
+              </svg>
+            </div>
+            <div>
+              <div class="resource-item__name">Park map</div>
+              <div class="resource-item__sub">Field locations</div>
+            </div>
+          </a>
+
+          <a
+            href="https://www.whitefordbaseball.com/portals/7393/docs/addresses to fields1720.docx"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="resource-item"
+          >
+            <div class="resource-item__icon">
+              <svg viewBox="0 0 20 20">
+                <path d="M10 2C6.7 2 4 4.7 4 8c0 5 6 10 6 10s6-5 6-10
+                  c0-3.3-2.7-6-6-6zm0 8a2 2 0 100-4 2 2 0 000 4z" />
+              </svg>
+            </div>
+            <div>
+              <div class="resource-item__name">Field addresses</div>
+              <div class="resource-item__sub">Directions to all fields</div>
+            </div>
+          </a>
+
+          <a
+            href="https://www.whitefordbaseball.com/portals/7393/docs/whiteford pitch count rules  1.docx"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="resource-item"
+          >
+            <div class="resource-item__icon">
+              <svg viewBox="0 0 20 20">
+                <circle cx="10" cy="10" r="7" fill="none" stroke="#888" stroke-width="1.5" />
+              </svg>
+            </div>
+            <div>
+              <div class="resource-item__name">Pitch count rules</div>
+              <div class="resource-item__sub">Safety guidelines</div>
+            </div>
+          </a>
+
+          <a
+            href="https://coeyscustomtees.com/whiteford_baseball"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="resource-item"
+          >
+            <div class="resource-item__icon">
+              <svg viewBox="0 0 20 20">
+                <path d="M3 4l3-2 4 3 4-3 3 2-2 3H5L3 4zm2 4h10v9H5V8z" />
+              </svg>
+            </div>
+            <div>
+              <div class="resource-item__name">Spirit wear store</div>
+              <div class="resource-item__sub">Coey's Custom Tees</div>
+            </div>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ============================================================
+         REGISTRATION
+         ============================================================
+         Sports Connect (Stack Sports / Blue Sombrero) blocks iframe
+         embedding via X-Frame-Options, so the registration flow is
+         handled with a direct external link.
+
+         This section shows current pricing and division info inline
+         so parents have all the details before clicking through.
+
+         TO UPDATE PRICING OR DIVISIONS — edit the <tbody> rows below.
+
+         TO UPDATE THE REGISTRATION LINK — replace the href values on
+         the two .btn--register-primary / .nav__register elements with
+         the URL from your Sports Connect admin dashboard:
+           sportsconnect.com → Programs → [season] → Registration Link
+         ============================================================ -->
+    <section class="register-section" id="register" aria-label="Registration">
+
+      <p class="section__label">Sports Connect</p>
+      <h2 class="section__title">Register for 2026</h2>
+
+      <p class="register__desc">
+        Spring 2026 season runs <strong>April 11 – June 20</strong>.
+        Select your division below, then click Register to complete
+        sign-up through our Sports Connect portal.
+      </p>
+
+      <!-- Division & pricing table -->
+      <div class="register__table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>Division</th>
+              <th>Ages</th>
+              <th>Grade</th>
+              <th>Cost</th>
+              <th>Schedule</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Falabella</td>
+              <td>3–4</td>
+              <td>—</td>
+              <td>$50</td>
+              <td>1 game / week · Sundays</td>
+            </tr>
+            <tr>
+              <td>Shetland</td>
+              <td>5–6</td>
+              <td>PreK–K</td>
+              <td>$50</td>
+              <td>1 game / week · Saturdays</td>
+            </tr>
+            <tr>
+              <td>Pinto</td>
+              <td>6–8</td>
+              <td>1st–2nd</td>
+              <td>$130</td>
+              <td>2 games / week · 1 usually Sat</td>
+            </tr>
+            <tr>
+              <td>Mustang</td>
+              <td>8–10</td>
+              <td>3rd–4th</td>
+              <td>$150</td>
+              <td>2 games / week · 1 usually Sat</td>
+            </tr>
+            <tr>
+              <td>Bronco</td>
+              <td>10–12</td>
+              <td>5th–6th</td>
+              <td>$180</td>
+              <td>2 games / week · 1 usually Sat</td>
+            </tr>
+            <tr>
+              <td>Pony</td>
+              <td>12–14</td>
+              <td>7th–8th</td>
+              <td>$220</td>
+              <td>2–3 games / week · 1 usually Sat</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- CTA buttons -->
+      <div class="register__ctas">
+
+        <a
+          href="https://www.whitefordbaseball.com/Default.aspx?tabid=794242"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn--register-primary"
+        >
+          Register on Sports Connect →
+        </a>
+
+        <a
+          href="https://shop.bluesombrero.com/store/p/7393"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn--register-secondary"
+        >
+          View store
+        </a>
+
+      </div>
+
+      <!-- Additional fee notes -->
+      <div class="register__notes">
+        <p>
+          <strong>Raffle tickets</strong> — $125 per family.
+          Recouped through selling tickets.
+        </p>
+        <p>
+          <strong>Refundable family fee</strong> — $150 per family.
+          Recouped with 8 hours of volunteer time (work days, tournaments,
+          Saturday mornings at 7 am, or concession stand shifts).
+        </p>
+        <p>
+          Jerseys and hats provided. Players need glove, bat, helmet, cleats,
+          baseball pants, and socks. Colors assigned after teams are formed.
+        </p>
+      </div>
+
+    </section>
+
+
+    <!-- ============================================================
+         SPONSORS
+         ============================================================
+         Rendered as styled text links — no external images, nothing
+         to break. To add or remove a sponsor, edit the sponsors array
+         in the JS block at the bottom of this file.
+         ============================================================ -->
+    <section class="sponsors-section" id="sponsors" aria-label="Sponsors">
+
+      <p class="sponsors-section__label">Our proud sponsors — click to visit</p>
+
+      <!-- Tiles injected by JS below -->
+      <div class="sponsors-grid" id="sponsors-grid"></div>
+
+    </section>
+
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer class="footer" aria-label="Footer">
+
+      <span class="footer__copy">
+        © 2026 Whiteford Baseball &nbsp;·&nbsp;
+        930 NE Frontage Rd, Joliet, IL 60431 &nbsp;·&nbsp;
+        (815) 744-3771
+      </span>
+
+      <nav class="footer__links" aria-label="Footer links">
+        <a
+          href="https://www.whitefordbaseball.com/Default.aspx?tabid=942918"
+          target="_blank"
+          rel="noopener noreferrer"
+        >FAQ</a>
+        <a
+          href="https://www.whitefordbaseball.com/Default.aspx?tabid=942937"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Board</a>
+        <a
+          href="https://shop.bluesombrero.com/store/p/7393"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Store</a>
+        <a
+          href="https://stacksports.com/legal-privacy"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Privacy</a>
+      </nav>
+
+    </footer>
+
+
+    <!-- ============================================================
+         JAVASCRIPT
+         ============================================================ -->
+    <script>
+
+      /* ============================================================
+         1. BACKGROUND IMAGE LOADER
+         ─────────────────────────────────────────────────────────────
+         src attributes are left empty in the HTML so the CSS gradient
+         fallback div is always visible while images load. This JS sets
+         the src at runtime, tries a backup URL if the primary fails,
+         and hides the <img> entirely if both fail (gradient stays up).
+
+         Images are from Unsplash — free, no API key needed.
+         To swap in your own photos replace the URL strings below.
+         ============================================================ */
+      (function loadBgImages() {
+
+        var images = [
+          {
+            id:      'hero-img',
+            primary: 'https://images.unsplash.com/photo-1508344928928-7165b67de128?w=1400&q=80',
+            backup:  'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1400&q=80'
+          },
+          {
+            id:      'tourney-img',
+            primary: 'https://images.unsplash.com/photo-1471295253337-3ceaaedca402?w=1400&q=80',
+            backup:  'https://images.unsplash.com/photo-1551958219-acbc595e3b55?w=1400&q=80'
+          }
+        ];
+
+        images.forEach(function (cfg) {
+
+          var el = document.getElementById(cfg.id);
+          if (!el) return;
+
+          el.onerror = function () {
+            el.onerror = function () {
+              el.style.display = 'none'; /* both URLs failed — hide element */
+            };
+            el.src = cfg.backup;
+          };
+
+          el.src = cfg.primary; /* trigger load */
+
+        });
+
+      }());
+
+
+      /* ============================================================
+         2. SPONSOR TILES
+         ─────────────────────────────────────────────────────────────
+         Builds the sponsor grid from a plain JS array so there are
+         zero external image dependencies and nothing to break.
+
+         TO ADD A SPONSOR    — append an object to the array below
+         TO REMOVE A SPONSOR — delete its object from the array
+         TO REORDER          — move objects within the array
+
+         Each object needs:
+           name  (string) — display text on the tile
+           url   (string) — sponsor website, opened in a new tab
+         ============================================================ */
+      (function renderSponsors() {
+
+        var sponsors = [
+          { name: 'RCK Law Firm',             url: 'http://rcklawfirm.com/' },
+          { name: 'eMediatecure',              url: 'https://www.emediatecure.com/' },
+          { name: 'Homes by Core',             url: 'https://homesbycore.com/' },
+          { name: 'CR Towing',                 url: 'https://crtowing.com/' },
+          { name: 'Tezak Funeral Home',        url: 'http://www.tezakfuneralhome.com/' },
+          { name: 'Voyager Group',             url: 'http://www.voyagergroupltd.com/' },
+          { name: "Dick's Sporting Goods",     url: 'https://www.dickssportinggoods.com/' },
+          { name: 'Distinct Visual Solutions', url: 'https://distinctvisualsolutions.com/' },
+          { name: 'Elite Gutters',             url: 'https://elitegutters.exteriorservice.net/' },
+          { name: 'Preservation Monument',     url: 'https://preservationmonumentco.com/' },
+          { name: 'Old National Bank',         url: 'https://www.oldnational.com/' },
+          { name: 'Tyson Motor',               url: 'https://www.tysonmotor.com/' },
+          { name: 'Darcy Motors',              url: 'http://www.darcymotors.com' },
+          { name: "Bedrock's Bar",             url: 'http://www.bedrocksbar.com/' },
+          { name: 'Barber Louie',              url: 'https://barberlouie.com/' },
+          { name: 'Morning Star Mission',      url: 'https://morningstarmission.org/' },
+          { name: 'Will-Grundy BTC',           url: 'https://willgrundybtc.com/' },
+          { name: "Coey's Closet",             url: 'http://www.coeyscloset.com/' },
+          { name: "Cemeno's Pizza",            url: 'https://cemenospizza.com/' },
+          { name: 'Creative Powder Coatings',  url: 'https://creativepowdercoatings.com/' },
+          { name: 'HH Roofing',                url: 'https://www.hhroofing-il.com/' },
+          { name: 'Trademark Exteriors',       url: 'https://www.trademark-exteriors.com/' },
+          { name: 'Shorewood Home & Auto',     url: 'http://www.shorewoodhomeandauto.com/' },
+          { name: 'Dale AC',                   url: 'https://www.facebook.com/Dale-AC-777879828923044/' },
+          { name: 'Beaver Rub Spice Co.',      url: 'https://www.beaverrubspicecompany.com/' },
+          { name: 'Fred C. Dames',             url: 'http://fredcdames.com/' },
+          { name: 'Window World Joliet',       url: 'https://windowworldjoliet.com/' },
+          { name: 'Diaz Flooring',             url: 'https://www.facebook.com/DiazFlooringInc/' },
+          { name: 'Trinity Christian',         url: 'https://www.trinitychristian.info/' },
+          { name: 'Nikos Catering',            url: 'https://nikoscateringjoliet.com/' },
+          { name: 'WCCCC',                     url: 'https://wcccc.net/' }
+        ];
+
+        var grid = document.getElementById('sponsors-grid');
+        if (!grid) return;
+
+        sponsors.forEach(function (sponsor) {
+
+          /* Anchor element — the whole tile is clickable */
+          var tile       = document.createElement('a');
+          tile.className = 'sponsor-tile';
+          tile.href      = sponsor.url;
+          tile.target    = '_blank';
+          tile.rel       = 'noopener noreferrer';
+          tile.setAttribute('aria-label', sponsor.name);
+
+          /* Sponsor name text */
+          var label       = document.createElement('span');
+          label.className = 'sponsor-tile__name';
+          label.textContent = sponsor.name;
+
+          tile.appendChild(label);
+          grid.appendChild(tile);
+
+        });
+
+      }());
+
+    </script>
+
+  </body>
+
+</html>
