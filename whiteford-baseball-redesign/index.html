@@ -952,18 +952,20 @@
 
       <!-- In-page anchor links -->
       <ul class="nav__links" role="list">
-        <li><a href="#tournament">Tournament</a></li>
+        <li id="nav-tournament-li"><a href="#section-tournament">Tournament</a></li>
         <li><a href="#news">News</a></li>
-        <li><a href="#register">Register</a></li>
+        <li id="nav-register-li"><a href="#section-register">Register</a></li>
         <li><a href="#sponsors">Sponsors</a></li>
       </ul>
 
       <!-- Opens Sports Connect registration in a new tab -->
+      <!-- Hidden by JS when registration_open is false in site.config.json -->
       <a
         href="https://www.whitefordbaseball.com/Default.aspx?tabid=794242"
         target="_blank"
         rel="noopener noreferrer"
         class="nav__register"
+        id="nav-register-btn"
       >
         Register
       </a>
@@ -1056,7 +1058,7 @@
     <!-- ============================================================
          TOURNAMENT
          ============================================================ -->
-    <section class="tourney" id="tournament" aria-label="July 4th All-Star Tournament">
+    <section class="tourney" id="section-tournament" aria-label="July 4th All-Star Tournament">
 
       <div class="tourney__bg-fallback" aria-hidden="true"></div>
 
@@ -1110,54 +1112,12 @@
       <p class="section__label">Latest</p>
       <h2 class="section__title">Headlines</h2>
 
-      <div class="news-grid">
-
-        <a
-          href="https://www.whitefordbaseball.com/Default.aspx?tabid=705820&mid=730292&newskeyid=HN1&newsid=561960&ctl=newsdetail"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="news-card"
-        >
-          <p class="news-card__date">Recent</p>
-          <h3 class="news-card__title">Park Clean Up Day</h3>
-          <p class="news-card__excerpt">
-            Help keep Whiteford Park in top shape for the season.
-            All volunteers welcome — every hour counts.
-          </p>
-          <span class="news-card__tag">Community</span>
-        </a>
-
-        <a
-          href="https://www.whitefordbaseball.com/Default.aspx?tabid=705820&mid=730292&newskeyid=HN1&newsid=560383&ctl=newsdetail"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="news-card"
-        >
-          <p class="news-card__date">Spring 2026</p>
-          <h3 class="news-card__title">In-house practices begin</h3>
-          <p class="news-card__excerpt">
-            Starting Sunday, April 8. Report to your team's assigned
-            field and bring your gear.
-          </p>
-          <span class="news-card__tag">Schedule</span>
-        </a>
-
-        <a
-          href="https://www.whitefordbaseball.com/Default.aspx?tabid=705820&mid=730292&newskeyid=HN1&newsid=559544&ctl=newsdetail"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="news-card"
-        >
-          <p class="news-card__date">Feb 28</p>
-          <h3 class="news-card__title">Parents meeting recap</h3>
-          <p class="news-card__excerpt">
-            Key updates on registration, schedules, and what to
-            expect this season.
-          </p>
-          <span class="news-card__tag">Announcement</span>
-        </a>
-
-      </div>
+      <!--
+        News cards are built by JS from site.config.json.
+        To update a card open site.config.json and edit news_1, news_2, or news_3.
+        To hide a card set its title to "" — JS will skip it automatically.
+      -->
+      <div class="news-grid" id="news-grid"></div>
 
       <!-- Resources ---------------------------------------------- -->
       <div class="resources-section">
@@ -1320,7 +1280,7 @@
          the URL from your Sports Connect admin dashboard:
            sportsconnect.com → Programs → [season] → Registration Link
          ============================================================ -->
-    <section class="register-section" id="register" aria-label="Registration">
+    <section class="register-section" id="section-register" aria-label="Registration">
 
       <p class="section__label">Sports Connect</p>
       <h2 class="section__title">Register for 2026</h2>
@@ -1493,15 +1453,172 @@
     <script>
 
       /* ============================================================
-         1. BACKGROUND IMAGE LOADER
+         HOW THE CONFIG SYSTEM WORKS
          ─────────────────────────────────────────────────────────────
-         src attributes are left empty in the HTML so the CSS gradient
-         fallback div is always visible while images load. This JS sets
-         the src at runtime, tries a backup URL if the primary fails,
-         and hides the <img> entirely if both fail (gradient stays up).
+         This page reads a file called site.config.json that lives in
+         the same folder as index.html. That file has two simple
+         true/false switches:
+
+           registration_open   — shows/hides the registration section
+                                 and the Register button in the nav
+           tournament_visible  — shows/hides the tournament section
+                                 and its nav link
+
+         To toggle a section ON or OFF, open site.config.json in any
+         text editor and change the value. Save the file and reload
+         the page. That's it — no HTML editing required.
+
+         Example — close registration and hide the tournament:
+           {
+             "registration_open": false,
+             "tournament_visible": false
+           }
+
+         Example — open registration, keep tournament hidden:
+           {
+             "registration_open": true,
+             "tournament_visible": false
+           }
+
+         HOW TO USE THIS PATTERN IN YOUR OWN PAGES
+         ─────────────────────────────────────────────────────────────
+         1. Create a .json file with your true/false flags
+         2. fetch() it in your page's JS
+         3. In the .then() callback, read the flags and use
+            element.style.display = 'none' to hide sections,
+            or element.style.display = '' to show them
+         4. Give every section you want to control an id=""
+            so JS can find it with document.getElementById()
+
+         This works on any static site — no backend needed.
+         The only requirement is that the page is served through a
+         server (Live Server, Apache, Nginx, Netlify, etc.).
+         It will NOT work if you open index.html by double-clicking
+         it in Finder/Explorer (file:// protocol blocks fetch).
+         ============================================================ */
+
+
+      /* ============================================================
+         1. LOAD SITE CONFIG & APPLY VISIBILITY RULES
+         ============================================================ */
+      fetch('site.config.json')
+
+        .then(function (response) {
+          return response.json();
+        })
+
+        .then(function (config) {
+
+          /* --- Tournament section -------------------------------- */
+          /* Controlled by: config.tournament_visible               */
+          var tournamentSection = document.getElementById('section-tournament');
+          var tournamentNavLink = document.getElementById('nav-tournament-li');
+
+          if (!config.tournament_visible) {
+            /* Hide the whole section */
+            if (tournamentSection) tournamentSection.style.display = 'none';
+            /* Hide the nav link so it doesn't scroll to nothing */
+            if (tournamentNavLink) tournamentNavLink.style.display = 'none';
+          }
+
+          /* --- Registration section ------------------------------ */
+          /* Controlled by: config.registration_open                */
+          var registerSection = document.getElementById('section-register');
+          var registerNavBtn  = document.getElementById('nav-register-btn');
+          var registerNavLi   = document.getElementById('nav-register-li');
+
+          if (!config.registration_open) {
+            /* Hide the whole registration section */
+            if (registerSection) registerSection.style.display = 'none';
+            /* Hide the Register button in the nav bar */
+            if (registerNavBtn)  registerNavBtn.style.display  = 'none';
+            /* Hide the Register link in the nav link list */
+            if (registerNavLi)   registerNavLi.style.display   = 'none';
+          }
+
+          /* --- News cards --------------------------------------- */
+          /* Controlled by: config.news_1, config.news_2,          */
+          /*                config.news_3                           */
+          /*                                                        */
+          /* Each news object needs:                                */
+          /*   title       — headline text                          */
+          /*   date        — date or label shown above the title    */
+          /*   description — body text on the card                  */
+          /*   tag         — small label badge at the bottom        */
+          /*   link        — URL the card links to (new tab)        */
+          /*                                                        */
+          /* To hide a card: set its title to "" in the JSON.       */
+          /* To update a card: just edit the values in the JSON.    */
+
+          var newsGrid = document.getElementById('news-grid');
+
+          if (newsGrid) {
+
+            /* Pull the three news slots out of config in order */
+            var newsItems = [config.news_1, config.news_2, config.news_3];
+
+            newsItems.forEach(function (item) {
+
+              /* Skip the card if title is empty or the slot is missing */
+              if (!item || !item.title) return;
+
+              /* Build the card as an anchor element */
+              var card     = document.createElement('a');
+              card.className = 'news-card';
+              card.href      = item.link || '#';
+              card.target    = '_blank';
+              card.rel       = 'noopener noreferrer';
+
+              /* Date label */
+              var date         = document.createElement('p');
+              date.className   = 'news-card__date';
+              date.textContent = item.date || '';
+
+              /* Title */
+              var title         = document.createElement('h3');
+              title.className   = 'news-card__title';
+              title.textContent = item.title;
+
+              /* Description */
+              var desc         = document.createElement('p');
+              desc.className   = 'news-card__excerpt';
+              desc.textContent = item.description || '';
+
+              /* Tag badge */
+              var tag         = document.createElement('span');
+              tag.className   = 'news-card__tag';
+              tag.textContent = item.tag || '';
+
+              /* Assemble and append */
+              card.appendChild(date);
+              card.appendChild(title);
+              card.appendChild(desc);
+              card.appendChild(tag);
+              newsGrid.appendChild(card);
+
+            });
+
+          }
+
+        })
+
+        .catch(function (err) {
+          /* If the config file can't be loaded (e.g. file:// protocol),
+             everything stays visible — fail safe, never fail hidden.  */
+          console.warn('site.config.json could not be loaded. All sections shown.', err);
+        });
+
+
+      /* ============================================================
+         2. BACKGROUND IMAGE LOADER
+         ─────────────────────────────────────────────────────────────
+         src attributes are left empty in HTML so the CSS gradient
+         fallback is always visible while images load. JS sets the src
+         at runtime, tries a backup URL if the primary fails, and
+         hides the <img> entirely if both fail (gradient stays up).
 
          Images are from Unsplash — free, no API key needed.
-         To swap in your own photos replace the URL strings below.
+         To use your own photos replace the URL strings below.
          ============================================================ */
       (function loadBgImages() {
 
@@ -1538,18 +1655,18 @@
 
 
       /* ============================================================
-         2. SPONSOR TILES
+         3. SPONSOR TILES
          ─────────────────────────────────────────────────────────────
-         Builds the sponsor grid from a plain JS array so there are
-         zero external image dependencies and nothing to break.
+         Builds the sponsor grid from a plain JS array — zero external
+         image dependencies, nothing to break.
 
          TO ADD A SPONSOR    — append an object to the array below
          TO REMOVE A SPONSOR — delete its object from the array
          TO REORDER          — move objects within the array
 
          Each object needs:
-           name  (string) — display text on the tile
-           url   (string) — sponsor website, opened in a new tab
+           name  (string) — display text shown on the tile
+           url   (string) — sponsor website, opens in a new tab
          ============================================================ */
       (function renderSponsors() {
 
@@ -1592,7 +1709,7 @@
 
         sponsors.forEach(function (sponsor) {
 
-          /* Anchor element — the whole tile is clickable */
+          /* Anchor — the whole tile is clickable */
           var tile       = document.createElement('a');
           tile.className = 'sponsor-tile';
           tile.href      = sponsor.url;

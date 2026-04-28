@@ -1,0 +1,28 @@
+{
+  "registration_open": true,
+  "tournament_visible": true,
+
+  "news_1": {
+    "title": "Park Clean Up Day",
+    "date": "Recent",
+    "description": "Help keep Whiteford Park in top shape for the season. All volunteers welcome — every hour counts.",
+    "tag": "Community",
+    "link": "https://www.whitefordbaseball.com/Default.aspx?tabid=705820&mid=730292&newskeyid=HN1&newsid=561960&ctl=newsdetail"
+  },
+
+  "news_2": {
+    "title": "In-house practices begin",
+    "date": "Spring 2026",
+    "description": "Starting Sunday, April 8. Report to your team's assigned field and bring your gear.",
+    "tag": "Schedule",
+    "link": "https://www.whitefordbaseball.com/Default.aspx?tabid=705820&mid=730292&newskeyid=HN1&newsid=560383&ctl=newsdetail"
+  },
+
+  "news_3": {
+    "title": "Parents meeting recap",
+    "date": "Feb 28",
+    "description": "Key updates on registration, schedules, and what to expect this season.",
+    "tag": "Announcement",
+    "link": "https://www.whitefordbaseball.com/Default.aspx?tabid=705820&mid=730292&newskeyid=HN1&newsid=559544&ctl=newsdetail"
+  }
+}
