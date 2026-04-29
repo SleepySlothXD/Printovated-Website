@@ -2,71 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Printovated | Home</title>
-    <link rel="stylesheet" href="style.css">
-    <meta name="description" content="A 3D Printing and design company, This website is still under construction and some features are unavailable">
+    <title>Print Error</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #0a0a0a;
+            color: white;
+        }
+        .x {
+            font-size: 80px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ff0000;
+        }
+        h1 {
+            margin: 10px 0;
+            color: #ff0000;
+        }
+        h2 {
+            margin: 5px 0;
+            font-weight: normal;
+        }
+        h3 {
+            color: #414141;
+            margin: 10px 0;
+            font-weight: 100;
+        }
+    </style>
 </head>
 <body>
-    <!-- Start Navigation Bar -->
-    <nav>
-        <a href="/"><img src="assets/logo.png" alt="Navigation Logo" class="nav-logo"></a>
-        <div class="nav-right">
-            <ul class="nav-ul">
-                <li class="nav-li"><a class="current-page" href="/">Home</a></li>
-                <li class="nav-li"><a class="nav-link" href="/about">About Us</a></li>
-                <li class="nav-li"><a class="nav-link" href="/shop">Shop</a></li>
-            </ul>
-            <a href="/cart"><img src="assets/cart.png" alt="cart" class="nav-cart"></a>
-        </div>
-    <!-- Start Popout -->
-        <div class="popout" id="popout">
-            <a href="/cart"><img src="assets/cart.png" alt="cart" class="popout-cart"></a>
-            <ul class="popout-ul">
-                <li class="popout-li"><a class="popout-current-page" href="/">Home</a></li>
-                <li class="popout-li"><a class="popout-link" href="/about">About Us</a></li>
-                <li class="popout-li"><a class="popout-link" href="/shop">Shop</a></li>
-            </ul>
-        </div>
-        <div class="ham-menu" id="ham-menu">
-            <div class="ham-top"></div>
-            <div class="ham-middle"></div>
-            <div class="ham-bottom"></div>
-        </div>
-    <!-- End Popout -->
-    </nav>
-    <!-- End Navigation Bar -->
-    <!-- Start Header -->
-    <header class="home-header">
-        <img src="assets/3D-Printed-Object-On-Desk.jpeg" alt="3D Printed Object On Desk" class="home-header-image">
-        <div class="home-header-right">
-            <h1 class="home-header-title">Grab your print today!</h1>
-            <p class="home-header-paragraph">Discover our wide range of 3D printed products and accessories.</p>
-            <a href="/shop"><button class="home-header-button">Shop Now!</button></a>
-        </div>
-    </header>
-    <!-- End Header -->
-    <!-- Start Footer -->
-     <div class="Under-Construction">
-        <p>This site is under construction and some features are not yet available.</p>
-     </div>
-    <!-- End Footer -->
-    <script>
-        // Start Popout Menu
-        const hammenu = document.getElementById('ham-menu');
-        const popout = document.getElementById('popout');
-
-        hammenu.addEventListener('click', () => {
-        popout.classList.toggle('active');
-        hammenu.classList.toggle('active');
-        });
-        addEventListener('click', (event) => {
-        if (!hammenu.contains(event.target) && !popout.contains(event.target)) {
-            popout.classList.remove('active');
-            hammenu.classList.remove('active');
-        }
-        });
-        // End Popout Menu 
-    </script>
+    <h1>!!! Print Error !!!</h1>
+    <h2>This site is currently under construction.</h2>
+    <h3>Please come back later.</h3>
 </body>
 </html>
