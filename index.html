@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Print Error</title>
     <style>
         body {
@@ -14,11 +15,22 @@
             font-family: Arial, sans-serif;
             text-align: center;
             background-color: #0a0a0a;
-            background: fixed;
+            background-attachment: fixed;
             background-image: url(assets/greyscale-logo-bg.png);
             background-position: center;
-            background-size: fill;
-            backdrop-filter: brightness(0.1);
+            background-size: cover;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 0;
+        }
+        h1, h2, h3 {
+            position: relative;
+            z-index: 1;
         }
         h1 {
             margin: 10px 0;
