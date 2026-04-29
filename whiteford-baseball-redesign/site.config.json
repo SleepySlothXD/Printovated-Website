@@ -2,27 +2,41 @@
   "registration_open": true,
   "tournament_visible": true,
 
-  "news_1": {
-    "title": "Park Clean Up Day",
-    "date": "Recent",
-    "description": "Help keep Whiteford Park in top shape for the season. All volunteers welcome — every hour counts.",
-    "tag": "Community",
-    "link": "https://www.whitefordbaseball.com/Default.aspx?tabid=705820&mid=730292&newskeyid=HN1&newsid=561960&ctl=newsdetail"
-  },
+  "news_1": { "title": "Park Clean Up Day", "date": "Recent", "description": "Help keep Whiteford Park in top shape for the season. All volunteers welcome — every hour counts.", "tag": "Community", "link": "https://www.whitefordbaseball.com/Default.aspx?tabid=705820&mid=730292&newskeyid=HN1&newsid=561960&ctl=newsdetail" },
+  "news_2": { "title": "In-house practices begin", "date": "Spring 2026", "description": "Starting Sunday, April 8. Report to your team's assigned field and bring your gear.", "tag": "Schedule", "link": "https://www.whitefordbaseball.com/Default.aspx?tabid=705820&mid=730292&newskeyid=HN1&newsid=560383&ctl=newsdetail" },
+  "news_3": { "title": "Parents meeting recap", "date": "Feb 28", "description": "Key updates on registration, schedules, and what to expect this season.", "tag": "Announcement", "link": "https://www.whitefordbaseball.com/Default.aspx?tabid=705820&mid=730292&newskeyid=HN1&newsid=559544&ctl=newsdetail" },
 
-  "news_2": {
-    "title": "In-house practices begin",
-    "date": "Spring 2026",
-    "description": "Starting Sunday, April 8. Report to your team's assigned field and bring your gear.",
-    "tag": "Schedule",
-    "link": "https://www.whitefordbaseball.com/Default.aspx?tabid=705820&mid=730292&newskeyid=HN1&newsid=560383&ctl=newsdetail"
-  },
-
-  "news_3": {
-    "title": "Parents meeting recap",
-    "date": "Feb 28",
-    "description": "Key updates on registration, schedules, and what to expect this season.",
-    "tag": "Announcement",
-    "link": "https://www.whitefordbaseball.com/Default.aspx?tabid=705820&mid=730292&newskeyid=HN1&newsid=559544&ctl=newsdetail"
-  }
+  "sponsors": [
+    { "name": "RCK Law Firm",             "url": "http://rcklawfirm.com/" },
+    { "name": "eMediatecure",              "url": "https://www.emediatecure.com/" },
+    { "name": "Homes by Core",             "url": "https://homesbycore.com/" },
+    { "name": "CR Towing",                 "url": "https://crtowing.com/" },
+    { "name": "Tezak Funeral Home",        "url": "http://www.tezakfuneralhome.com/" },
+    { "name": "Voyager Group",             "url": "http://www.voyagergroupltd.com/" },
+    { "name": "Dick's Sporting Goods",     "url": "https://www.dickssportinggoods.com/" },
+    { "name": "Distinct Visual Solutions", "url": "https://distinctvisualsolutions.com/" },
+    { "name": "Elite Gutters",             "url": "https://elitegutters.exteriorservice.net/" },
+    { "name": "Preservation Monument",     "url": "https://preservationmonumentco.com/" },
+    { "name": "Old National Bank",         "url": "https://www.oldnational.com/" },
+    { "name": "Tyson Motor",               "url": "https://www.tysonmotor.com/" },
+    { "name": "Darcy Motors",              "url": "http://www.darcymotors.com" },
+    { "name": "Bedrock's Bar",             "url": "http://www.bedrocksbar.com/" },
+    { "name": "Barber Louie",              "url": "https://barberlouie.com/" },
+    { "name": "Morning Star Mission",      "url": "https://morningstarmission.org/" },
+    { "name": "Will-Grundy BTC",           "url": "https://willgrundybtc.com/" },
+    { "name": "Coey's Closet",             "url": "http://www.coeyscloset.com/" },
+    { "name": "Cemeno's Pizza",            "url": "https://cemenospizza.com/" },
+    { "name": "Creative Powder Coatings",  "url": "https://creativepowdercoatings.com/" },
+    { "name": "HH Roofing",               "url": "https://www.hhroofing-il.com/" },
+    { "name": "Trademark Exteriors",       "url": "https://www.trademark-exteriors.com/" },
+    { "name": "Shorewood Home & Auto",     "url": "http://www.shorewoodhomeandauto.com/" },
+    { "name": "Dale AC",                   "url": "https://www.facebook.com/Dale-AC-777879828923044/" },
+    { "name": "Beaver Rub Spice Co.",      "url": "https://www.beaverrubspicecompany.com/" },
+    { "name": "Fred C. Dames",             "url": "http://fredcdames.com/" },
+    { "name": "Window World Joliet",       "url": "https://windowworldjoliet.com/" },
+    { "name": "Diaz Flooring",             "url": "https://www.facebook.com/DiazFlooringInc/" },
+    { "name": "Trinity Christian",         "url": "https://www.trinitychristian.info/" },
+    { "name": "Nikos Catering",            "url": "https://nikoscateringjoliet.com/" },
+    { "name": "WCCCC",                     "url": "https://wcccc.net/" }
+  ]
 }

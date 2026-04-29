@@ -9,43 +9,28 @@
 
     <title>Whiteford | Baseball</title>
 
-    <!-- ============================================================
-         FONTS
-         Google Fonts — Inter (400, 500, 600)
-         ============================================================ -->
+    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
-    <!-- ============================================================
-         STYLES
-         ============================================================ -->
     <style>
 
-      /* ============================================================
-         RESET
-         ============================================================ */
+      /* RESET */
 
-      *,
-      *::before,
-      *::after {
+      *, *::before, *::after {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
 
 
-      /* ============================================================
-         BASE
-         ============================================================ */
+      /* BASE */
 
       html {
         font-size: 16px;
         scroll-behavior: smooth;
-        -webkit-text-size-adjust: 100%; /* prevent iOS font inflation */
+        -webkit-text-size-adjust: 100%;
       }
 
       body {
@@ -53,7 +38,7 @@
         background: #111;
         color: #fff;
         min-height: 100vh;
-        overflow-x: hidden; /* no horizontal scroll */
+        overflow-x: hidden;
         width: 100%;
       }
 
@@ -77,9 +62,7 @@
       }
 
 
-      /* ============================================================
-         NAV
-         ============================================================ */
+      /* NAV */
 
       .nav {
         position: sticky;
@@ -96,7 +79,7 @@
         width: 100%;
       }
 
-      /* --- Brand / home link ------------------------------------ */
+      /* nav brand */
 
       .nav__brand {
         display: flex;
@@ -132,7 +115,7 @@
         text-transform: uppercase;
       }
 
-      /* --- Nav links -------------------------------------------- */
+      /* nav links */
 
       .nav__links {
         display: flex;
@@ -150,7 +133,7 @@
         color: #fff;
       }
 
-      /* --- Register button -------------------------------------- */
+      /* nav register button */
 
       .nav__register {
         background: #222;
@@ -173,9 +156,7 @@
       }
 
 
-      /* ============================================================
-         HERO
-         ============================================================ */
+      /* HERO */
 
       .hero {
         position: relative;
@@ -186,7 +167,7 @@
         width: 100%;
       }
 
-      /* Gradient shown while image loads or if it fails */
+      /* shown while image loads or if it fails */
       .hero__bg-fallback {
         position: absolute;
         inset: 0;
@@ -220,7 +201,7 @@
       .hero__content {
         position: relative;
         z-index: 3;
-        padding: 0 2rem 3rem;
+        padding: 6rem 2rem 3rem;
         width: 100%;
       }
 
@@ -255,7 +236,7 @@
         margin-bottom: 28px;
       }
 
-      /* --- CTA buttons ------------------------------------------ */
+      /* hero buttons */
 
       .hero__ctas {
         display: flex;
@@ -297,7 +278,7 @@
         border-color: rgba(255, 255, 255, 0.65);
       }
 
-      /* --- Stats row -------------------------------------------- */
+      /* hero stats row */
 
       .hero__stats {
         display: flex;
@@ -322,9 +303,7 @@
       }
 
 
-      /* ============================================================
-         TOURNAMENT
-         ============================================================ */
+      /* TOURNAMENT */
 
       .tourney {
         position: relative;
@@ -430,9 +409,7 @@
       }
 
 
-      /* ============================================================
-         NEWS & RESOURCES
-         ============================================================ */
+      /* NEWS & RESOURCES */
 
       .content-section {
         background: #0d0d0d;
@@ -456,7 +433,7 @@
         margin-bottom: 1.6rem;
       }
 
-      /* --- News grid -------------------------------------------- */
+      /* news grid */
 
       .news-grid {
         display: grid;
@@ -510,7 +487,7 @@
         letter-spacing: 0.04em;
       }
 
-      /* --- Resources grid --------------------------------------- */
+      /* resources grid */
 
       .resources-section {
         margin-top: 3rem;
@@ -570,9 +547,7 @@
       }
 
 
-      /* ============================================================
-         REGISTRATION
-         ============================================================ */
+      /* REGISTRATION */
 
       .register-section {
         background: #000;
@@ -602,7 +577,7 @@
         font-weight: 500;
       }
 
-      /* --- Division table --------------------------------------- */
+      /* division table */
 
       .register__table-card {
         background: #0d0d0d;
@@ -610,13 +585,13 @@
         border-radius: 10px;
         overflow: hidden;
         margin-bottom: 2rem;
-        overflow-x: auto; /* scroll on small screens */
+        overflow-x: auto;
       }
 
       .register__table-card table {
         width: 100%;
         border-collapse: collapse;
-        min-width: 520px; /* prevents column squish */
+        min-width: 520px;
       }
 
       .register__table-card th {
@@ -654,7 +629,7 @@
         color: #fff;
       }
 
-      /* --- CTA buttons ------------------------------------------ */
+      /* registration buttons */
 
       .register__ctas {
         display: flex;
@@ -697,7 +672,7 @@
         color: #fff;
       }
 
-      /* --- Fee notes -------------------------------------------- */
+      /* fee notes */
 
       .register__notes {
         margin-top: 1.5rem;
@@ -724,9 +699,7 @@
       }
 
 
-      /* ============================================================
-         SPONSORS
-         ============================================================ */
+      /* SPONSORS */
 
       .sponsors-section {
         background: #000;
@@ -782,9 +755,7 @@
       }
 
 
-      /* ============================================================
-         FOOTER
-         ============================================================ */
+      /* FOOTER */
 
       .footer {
         background: #000;
@@ -821,13 +792,10 @@
       }
 
 
-      /* ============================================================
-         RESPONSIVE — 768px and below
-         ============================================================ */
+      /* RESPONSIVE 768px */
 
       @media (max-width: 768px) {
 
-        /* Hide nav text links; keep brand + register */
         .nav__links {
           display: none;
         }
@@ -836,14 +804,13 @@
           display: none;
         }
 
-        /* Hero */
         .hero {
           height: auto;
           min-height: 440px;
         }
 
         .hero__content {
-          padding: 0 1.2rem 2.2rem;
+          padding: 5rem 1.2rem 2.2rem;
         }
 
         .hero__heading {
@@ -862,14 +829,12 @@
           font-size: 24px;
         }
 
-        /* Tournament */
         .tourney__inner {
           flex-direction: column;
           align-items: flex-start;
           padding: 2rem 1.2rem;
         }
 
-        /* Sections */
         .content-section,
         .register-section,
         .sponsors-section {
@@ -880,7 +845,6 @@
           font-size: 22px;
         }
 
-        /* Footer */
         .footer {
           flex-direction: column;
           align-items: flex-start;
@@ -890,9 +854,7 @@
       }
 
 
-      /* ============================================================
-         RESPONSIVE — 480px and below
-         ============================================================ */
+      /* RESPONSIVE 480px */
 
       @media (max-width: 480px) {
 
@@ -924,24 +886,14 @@
 
   <body>
 
-    <!-- ============================================================
-         NAV
-         ============================================================ -->
+    <!-- NAV -->
     <nav class="nav">
 
-      <!--
-        href="/" sends to the site root on any server / Live Server.
-        On a multi-page site this will always take the user back home.
-      -->
-      <a href="/" class="nav__brand" aria-label="Whiteford Baseball — home">
+      <!-- logo links to site root, works on any server or Live Server -->
+      <a href="/" class="nav__brand" aria-label="Whiteford Baseball home">
 
-        <!-- Whiteford W logo — place Whiteford_W.png in the same folder as this file -->
-        <img
-          class="nav__logo"
-          src="Whiteford_W.png"
-          alt="Whiteford Baseball"
-          aria-hidden="true"
-        />
+        <!-- Whiteford_W.png must be in the same folder as this file -->
+        <img class="nav__logo" src="Whiteford_W.png" alt="Whiteford Baseball" aria-hidden="true" />
 
         <div class="nav__brand-text">
           <span class="brand-name">Whiteford Baseball</span>
@@ -950,7 +902,7 @@
 
       </a>
 
-      <!-- In-page anchor links -->
+      <!-- page anchor links, tournament and register hidden by JS when toggled off -->
       <ul class="nav__links" role="list">
         <li id="nav-tournament-li"><a href="#section-tournament">Tournament</a></li>
         <li><a href="#news">News</a></li>
@@ -958,8 +910,7 @@
         <li><a href="#sponsors">Sponsors</a></li>
       </ul>
 
-      <!-- Opens Sports Connect registration in a new tab -->
-      <!-- Hidden by JS when registration_open is false in site.config.json -->
+      <!-- hidden by JS when registration_open is false in site.config.json -->
       <a
         href="https://www.whitefordbaseball.com/Default.aspx?tabid=794242"
         target="_blank"
@@ -973,26 +924,14 @@
     </nav>
 
 
-    <!-- ============================================================
-         HERO
-         ============================================================ -->
+    <!-- HERO -->
     <section class="hero" aria-label="Hero">
 
-      <!-- Gradient fallback — always visible until image loads -->
+      <!-- gradient shown until image loads -->
       <div class="hero__bg-fallback" aria-hidden="true"></div>
 
-      <!--
-        src is intentionally empty here.
-        JS sets it at runtime so the gradient is guaranteed to show
-        first (avoids a flash of broken-image icon).
-      -->
-      <img
-        class="hero__bg"
-        id="hero-img"
-        src=""
-        alt=""
-        aria-hidden="true"
-      />
+      <!-- src set by JS so gradient always shows first -->
+      <img class="hero__bg" id="hero-img" src="" alt="" aria-hidden="true" />
 
       <div class="hero__overlay" aria-hidden="true"></div>
 
@@ -1055,20 +994,13 @@
     </section>
 
 
-    <!-- ============================================================
-         TOURNAMENT
-         ============================================================ -->
+    <!-- TOURNAMENT — hidden by JS when tournament_visible is false in site.config.json -->
     <section class="tourney" id="section-tournament" aria-label="July 4th All-Star Tournament">
 
       <div class="tourney__bg-fallback" aria-hidden="true"></div>
 
-      <img
-        class="tourney__bg"
-        id="tourney-img"
-        src=""
-        alt=""
-        aria-hidden="true"
-      />
+      <!-- src set by JS so gradient always shows first -->
+      <img class="tourney__bg" id="tourney-img" src="" alt="" aria-hidden="true" />
 
       <div class="tourney__overlay" aria-hidden="true"></div>
 
@@ -1103,35 +1035,25 @@
     </section>
 
 
-    <!-- ============================================================
-         NEWS & RESOURCES
-         ============================================================ -->
+    <!-- NEWS & RESOURCES -->
     <section class="content-section" id="news" aria-label="News and resources">
 
-      <!-- News --------------------------------------------------- -->
       <p class="section__label">Latest</p>
       <h2 class="section__title">Headlines</h2>
 
-      <!--
-        News cards are built by JS from site.config.json.
-        To update a card open site.config.json and edit news_1, news_2, or news_3.
-        To hide a card set its title to "" — JS will skip it automatically.
-      -->
+      <!-- news cards injected by JS from site.config.json -->
+      <!-- to update: edit news_1 / news_2 / news_3 in site.config.json -->
+      <!-- to hide a card: set its title to "" in site.config.json -->
       <div class="news-grid" id="news-grid"></div>
 
-      <!-- Resources ---------------------------------------------- -->
+      <!-- RESOURCES -->
       <div class="resources-section">
 
         <p class="section__label" style="margin-bottom: 1.1rem;">Resources</p>
 
         <div class="resources-grid">
 
-          <a
-            href="https://www.whitefordbaseball.com/portals/7393/docs/shetland rules - 2026.docx"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="resource-item"
-          >
+          <a href="https://www.whitefordbaseball.com/portals/7393/docs/shetland rules - 2026.docx" target="_blank" rel="noopener noreferrer" class="resource-item">
             <div class="resource-item__icon">
               <svg viewBox="0 0 20 20"><path d="M4 2h8l4 4v12H4V2zm8 0v4h4" /></svg>
             </div>
@@ -1141,12 +1063,7 @@
             </div>
           </a>
 
-          <a
-            href="https://www.whitefordbaseball.com/portals/7393/docs/pinto rules 2026.docx"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="resource-item"
-          >
+          <a href="https://www.whitefordbaseball.com/portals/7393/docs/pinto rules 2026.docx" target="_blank" rel="noopener noreferrer" class="resource-item">
             <div class="resource-item__icon">
               <svg viewBox="0 0 20 20"><path d="M4 2h8l4 4v12H4V2zm8 0v4h4" /></svg>
             </div>
@@ -1156,12 +1073,7 @@
             </div>
           </a>
 
-          <a
-            href="https://www.whitefordbaseball.com/portals/7393/docs/mustang rules 2026.docx"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="resource-item"
-          >
+          <a href="https://www.whitefordbaseball.com/portals/7393/docs/mustang rules 2026.docx" target="_blank" rel="noopener noreferrer" class="resource-item">
             <div class="resource-item__icon">
               <svg viewBox="0 0 20 20"><path d="M4 2h8l4 4v12H4V2zm8 0v4h4" /></svg>
             </div>
@@ -1171,12 +1083,7 @@
             </div>
           </a>
 
-          <a
-            href="https://www.whitefordbaseball.com/portals/7393/docs/bonco and pony rules 2026.docx"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="resource-item"
-          >
+          <a href="https://www.whitefordbaseball.com/portals/7393/docs/bonco and pony rules 2026.docx" target="_blank" rel="noopener noreferrer" class="resource-item">
             <div class="resource-item__icon">
               <svg viewBox="0 0 20 20"><path d="M4 2h8l4 4v12H4V2zm8 0v4h4" /></svg>
             </div>
@@ -1186,17 +1093,9 @@
             </div>
           </a>
 
-          <a
-            href="https://www.whitefordbaseball.com/portals/7393/images/whiteford map.jpg"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="resource-item"
-          >
+          <a href="https://www.whitefordbaseball.com/portals/7393/images/whiteford map.jpg" target="_blank" rel="noopener noreferrer" class="resource-item">
             <div class="resource-item__icon">
-              <svg viewBox="0 0 20 20">
-                <path d="M10 2C6.7 2 4 4.7 4 8c0 5 6 10 6 10s6-5 6-10
-                  c0-3.3-2.7-6-6-6zm0 8a2 2 0 100-4 2 2 0 000 4z" />
-              </svg>
+              <svg viewBox="0 0 20 20"><path d="M10 2C6.7 2 4 4.7 4 8c0 5 6 10 6 10s6-5 6-10c0-3.3-2.7-6-6-6zm0 8a2 2 0 100-4 2 2 0 000 4z" /></svg>
             </div>
             <div>
               <div class="resource-item__name">Park map</div>
@@ -1204,17 +1103,9 @@
             </div>
           </a>
 
-          <a
-            href="https://www.whitefordbaseball.com/portals/7393/docs/addresses to fields1720.docx"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="resource-item"
-          >
+          <a href="https://www.whitefordbaseball.com/portals/7393/docs/addresses to fields1720.docx" target="_blank" rel="noopener noreferrer" class="resource-item">
             <div class="resource-item__icon">
-              <svg viewBox="0 0 20 20">
-                <path d="M10 2C6.7 2 4 4.7 4 8c0 5 6 10 6 10s6-5 6-10
-                  c0-3.3-2.7-6-6-6zm0 8a2 2 0 100-4 2 2 0 000 4z" />
-              </svg>
+              <svg viewBox="0 0 20 20"><path d="M10 2C6.7 2 4 4.7 4 8c0 5 6 10 6 10s6-5 6-10c0-3.3-2.7-6-6-6zm0 8a2 2 0 100-4 2 2 0 000 4z" /></svg>
             </div>
             <div>
               <div class="resource-item__name">Field addresses</div>
@@ -1222,16 +1113,9 @@
             </div>
           </a>
 
-          <a
-            href="https://www.whitefordbaseball.com/portals/7393/docs/whiteford pitch count rules  1.docx"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="resource-item"
-          >
+          <a href="https://www.whitefordbaseball.com/portals/7393/docs/whiteford pitch count rules  1.docx" target="_blank" rel="noopener noreferrer" class="resource-item">
             <div class="resource-item__icon">
-              <svg viewBox="0 0 20 20">
-                <circle cx="10" cy="10" r="7" fill="none" stroke="#888" stroke-width="1.5" />
-              </svg>
+              <svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7" fill="none" stroke="#888" stroke-width="1.5" /></svg>
             </div>
             <div>
               <div class="resource-item__name">Pitch count rules</div>
@@ -1239,16 +1123,9 @@
             </div>
           </a>
 
-          <a
-            href="https://coeyscustomtees.com/whiteford_baseball"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="resource-item"
-          >
+          <a href="https://coeyscustomtees.com/whiteford_baseball" target="_blank" rel="noopener noreferrer" class="resource-item">
             <div class="resource-item__icon">
-              <svg viewBox="0 0 20 20">
-                <path d="M3 4l3-2 4 3 4-3 3 2-2 3H5L3 4zm2 4h10v9H5V8z" />
-              </svg>
+              <svg viewBox="0 0 20 20"><path d="M3 4l3-2 4 3 4-3 3 2-2 3H5L3 4zm2 4h10v9H5V8z" /></svg>
             </div>
             <div>
               <div class="resource-item__name">Spirit wear store</div>
@@ -1263,23 +1140,8 @@
     </section>
 
 
-    <!-- ============================================================
-         REGISTRATION
-         ============================================================
-         Sports Connect (Stack Sports / Blue Sombrero) blocks iframe
-         embedding via X-Frame-Options, so the registration flow is
-         handled with a direct external link.
-
-         This section shows current pricing and division info inline
-         so parents have all the details before clicking through.
-
-         TO UPDATE PRICING OR DIVISIONS — edit the <tbody> rows below.
-
-         TO UPDATE THE REGISTRATION LINK — replace the href values on
-         the two .btn--register-primary / .nav__register elements with
-         the URL from your Sports Connect admin dashboard:
-           sportsconnect.com → Programs → [season] → Registration Link
-         ============================================================ -->
+    <!-- REGISTRATION — hidden by JS when registration_open is false in site.config.json -->
+    <!-- to update the registration link: find the two btn--register-primary hrefs below -->
     <section class="register-section" id="section-register" aria-label="Registration">
 
       <p class="section__label">Sports Connect</p>
@@ -1291,7 +1153,7 @@
         sign-up through our Sports Connect portal.
       </p>
 
-      <!-- Division & pricing table -->
+      <!-- to update pricing or divisions: edit the rows in this table -->
       <div class="register__table-card">
         <table>
           <thead>
@@ -1350,7 +1212,6 @@
         </table>
       </div>
 
-      <!-- CTA buttons -->
       <div class="register__ctas">
 
         <a
@@ -1373,7 +1234,6 @@
 
       </div>
 
-      <!-- Additional fee notes -->
       <div class="register__notes">
         <p>
           <strong>Raffle tickets</strong> — $125 per family.
@@ -1393,26 +1253,18 @@
     </section>
 
 
-    <!-- ============================================================
-         SPONSORS
-         ============================================================
-         Rendered as styled text links — no external images, nothing
-         to break. To add or remove a sponsor, edit the sponsors array
-         in the JS block at the bottom of this file.
-         ============================================================ -->
+    <!-- SPONSORS — tiles built by JS from the sponsors array in the script below -->
+    <!-- to add/remove a sponsor: edit the sponsors array in the script below -->
     <section class="sponsors-section" id="sponsors" aria-label="Sponsors">
 
       <p class="sponsors-section__label">Our proud sponsors — click to visit</p>
 
-      <!-- Tiles injected by JS below -->
       <div class="sponsors-grid" id="sponsors-grid"></div>
 
     </section>
 
 
-    <!-- ============================================================
-         FOOTER
-         ============================================================ -->
+    <!-- FOOTER -->
     <footer class="footer" aria-label="Footer">
 
       <span class="footer__copy">
@@ -1422,85 +1274,22 @@
       </span>
 
       <nav class="footer__links" aria-label="Footer links">
-        <a
-          href="https://www.whitefordbaseball.com/Default.aspx?tabid=942918"
-          target="_blank"
-          rel="noopener noreferrer"
-        >FAQ</a>
-        <a
-          href="https://www.whitefordbaseball.com/Default.aspx?tabid=942937"
-          target="_blank"
-          rel="noopener noreferrer"
-        >Board</a>
-        <a
-          href="https://shop.bluesombrero.com/store/p/7393"
-          target="_blank"
-          rel="noopener noreferrer"
-        >Store</a>
-        <a
-          href="https://stacksports.com/legal-privacy"
-          target="_blank"
-          rel="noopener noreferrer"
-        >Privacy</a>
+        <a href="https://www.whitefordbaseball.com/Default.aspx?tabid=942918" target="_blank" rel="noopener noreferrer">FAQ</a>
+        <a href="https://www.whitefordbaseball.com/Default.aspx?tabid=942937" target="_blank" rel="noopener noreferrer">Board</a>
+        <a href="https://shop.bluesombrero.com/store/p/7393" target="_blank" rel="noopener noreferrer">Store</a>
+        <a href="https://stacksports.com/legal-privacy" target="_blank" rel="noopener noreferrer">Privacy</a>
       </nav>
 
     </footer>
 
 
-    <!-- ============================================================
-         JAVASCRIPT
-         ============================================================ -->
     <script>
 
-      /* ============================================================
-         HOW THE CONFIG SYSTEM WORKS
-         ─────────────────────────────────────────────────────────────
-         This page reads a file called site.config.json that lives in
-         the same folder as index.html. That file has two simple
-         true/false switches:
+      /* CONFIG SYSTEM
+         reads site.config.json from the same folder as this file.
+         change true/false values in that file to show/hide sections.
+         requires a server to run (Live Server works, double-click open does not). */
 
-           registration_open   — shows/hides the registration section
-                                 and the Register button in the nav
-           tournament_visible  — shows/hides the tournament section
-                                 and its nav link
-
-         To toggle a section ON or OFF, open site.config.json in any
-         text editor and change the value. Save the file and reload
-         the page. That's it — no HTML editing required.
-
-         Example — close registration and hide the tournament:
-           {
-             "registration_open": false,
-             "tournament_visible": false
-           }
-
-         Example — open registration, keep tournament hidden:
-           {
-             "registration_open": true,
-             "tournament_visible": false
-           }
-
-         HOW TO USE THIS PATTERN IN YOUR OWN PAGES
-         ─────────────────────────────────────────────────────────────
-         1. Create a .json file with your true/false flags
-         2. fetch() it in your page's JS
-         3. In the .then() callback, read the flags and use
-            element.style.display = 'none' to hide sections,
-            or element.style.display = '' to show them
-         4. Give every section you want to control an id=""
-            so JS can find it with document.getElementById()
-
-         This works on any static site — no backend needed.
-         The only requirement is that the page is served through a
-         server (Live Server, Apache, Nginx, Netlify, etc.).
-         It will NOT work if you open index.html by double-clicking
-         it in Finder/Explorer (file:// protocol blocks fetch).
-         ============================================================ */
-
-
-      /* ============================================================
-         1. LOAD SITE CONFIG & APPLY VISIBILITY RULES
-         ============================================================ */
       fetch('site.config.json')
 
         .then(function (response) {
@@ -1509,87 +1298,60 @@
 
         .then(function (config) {
 
-          /* --- Tournament section -------------------------------- */
-          /* Controlled by: config.tournament_visible               */
+          /* tournament — controlled by tournament_visible in site.config.json */
           var tournamentSection = document.getElementById('section-tournament');
           var tournamentNavLink = document.getElementById('nav-tournament-li');
 
           if (!config.tournament_visible) {
-            /* Hide the whole section */
             if (tournamentSection) tournamentSection.style.display = 'none';
-            /* Hide the nav link so it doesn't scroll to nothing */
             if (tournamentNavLink) tournamentNavLink.style.display = 'none';
           }
 
-          /* --- Registration section ------------------------------ */
-          /* Controlled by: config.registration_open                */
+          /* registration — controlled by registration_open in site.config.json */
           var registerSection = document.getElementById('section-register');
           var registerNavBtn  = document.getElementById('nav-register-btn');
           var registerNavLi   = document.getElementById('nav-register-li');
 
           if (!config.registration_open) {
-            /* Hide the whole registration section */
             if (registerSection) registerSection.style.display = 'none';
-            /* Hide the Register button in the nav bar */
             if (registerNavBtn)  registerNavBtn.style.display  = 'none';
-            /* Hide the Register link in the nav link list */
             if (registerNavLi)   registerNavLi.style.display   = 'none';
           }
 
-          /* --- News cards --------------------------------------- */
-          /* Controlled by: config.news_1, config.news_2,          */
-          /*                config.news_3                           */
-          /*                                                        */
-          /* Each news object needs:                                */
-          /*   title       — headline text                          */
-          /*   date        — date or label shown above the title    */
-          /*   description — body text on the card                  */
-          /*   tag         — small label badge at the bottom        */
-          /*   link        — URL the card links to (new tab)        */
-          /*                                                        */
-          /* To hide a card: set its title to "" in the JSON.       */
-          /* To update a card: just edit the values in the JSON.    */
-
+          /* news cards — built from news_1 / news_2 / news_3 in site.config.json */
+          /* set title to "" to hide a card without deleting it */
           var newsGrid = document.getElementById('news-grid');
 
           if (newsGrid) {
 
-            /* Pull the three news slots out of config in order */
             var newsItems = [config.news_1, config.news_2, config.news_3];
 
             newsItems.forEach(function (item) {
 
-              /* Skip the card if title is empty or the slot is missing */
-              if (!item || !item.title) return;
+              if (!item || !item.title) return; /* skip empty/hidden cards */
 
-              /* Build the card as an anchor element */
-              var card     = document.createElement('a');
+              var card       = document.createElement('a');
               card.className = 'news-card';
               card.href      = item.link || '#';
               card.target    = '_blank';
               card.rel       = 'noopener noreferrer';
 
-              /* Date label */
               var date         = document.createElement('p');
               date.className   = 'news-card__date';
               date.textContent = item.date || '';
 
-              /* Title */
               var title         = document.createElement('h3');
               title.className   = 'news-card__title';
               title.textContent = item.title;
 
-              /* Description */
               var desc         = document.createElement('p');
               desc.className   = 'news-card__excerpt';
               desc.textContent = item.description || '';
 
-              /* Tag badge */
               var tag         = document.createElement('span');
               tag.className   = 'news-card__tag';
               tag.textContent = item.tag || '';
 
-              /* Assemble and append */
               card.appendChild(date);
               card.appendChild(title);
               card.appendChild(desc);
@@ -1600,26 +1362,22 @@
 
           }
 
+          /* sponsors — managed in the sponsors array in site.config.json */
+          if (window._renderSponsors) window._renderSponsors(config.sponsors);
+
         })
 
         .catch(function (err) {
-          /* If the config file can't be loaded (e.g. file:// protocol),
-             everything stays visible — fail safe, never fail hidden.  */
+          /* if config fails to load, everything stays visible — fail safe */
           console.warn('site.config.json could not be loaded. All sections shown.', err);
         });
 
 
-      /* ============================================================
-         2. BACKGROUND IMAGE LOADER
-         ─────────────────────────────────────────────────────────────
-         src attributes are left empty in HTML so the CSS gradient
-         fallback is always visible while images load. JS sets the src
-         at runtime, tries a backup URL if the primary fails, and
-         hides the <img> entirely if both fail (gradient stays up).
+      /* BACKGROUND IMAGES
+         src is empty in HTML so the gradient fallback always shows first.
+         JS sets src at runtime, tries backup if primary fails.
+         to swap photos: replace the URL strings below. */
 
-         Images are from Unsplash — free, no API key needed.
-         To use your own photos replace the URL strings below.
-         ============================================================ */
       (function loadBgImages() {
 
         var images = [
@@ -1642,90 +1400,53 @@
 
           el.onerror = function () {
             el.onerror = function () {
-              el.style.display = 'none'; /* both URLs failed — hide element */
+              el.style.display = 'none'; /* both failed, hide element */
             };
             el.src = cfg.backup;
           };
 
-          el.src = cfg.primary; /* trigger load */
+          el.src = cfg.primary;
 
         });
 
       }());
 
 
-      /* ============================================================
-         3. SPONSOR TILES
-         ─────────────────────────────────────────────────────────────
-         Builds the sponsor grid from a plain JS array — zero external
-         image dependencies, nothing to break.
+      /* SPONSOR TILES
+         sponsors are now managed in site.config.json
+         to add a sponsor: add a line to the sponsors array in site.config.json
+         to remove a sponsor: delete its line from the sponsors array
+         to reorder: move lines within the sponsors array */
 
-         TO ADD A SPONSOR    — append an object to the array below
-         TO REMOVE A SPONSOR — delete its object from the array
-         TO REORDER          — move objects within the array
-
-         Each object needs:
-           name  (string) — display text shown on the tile
-           url   (string) — sponsor website, opens in a new tab
-         ============================================================ */
       (function renderSponsors() {
-
-        var sponsors = [
-          { name: 'RCK Law Firm',             url: 'http://rcklawfirm.com/' },
-          { name: 'eMediatecure',              url: 'https://www.emediatecure.com/' },
-          { name: 'Homes by Core',             url: 'https://homesbycore.com/' },
-          { name: 'CR Towing',                 url: 'https://crtowing.com/' },
-          { name: 'Tezak Funeral Home',        url: 'http://www.tezakfuneralhome.com/' },
-          { name: 'Voyager Group',             url: 'http://www.voyagergroupltd.com/' },
-          { name: "Dick's Sporting Goods",     url: 'https://www.dickssportinggoods.com/' },
-          { name: 'Distinct Visual Solutions', url: 'https://distinctvisualsolutions.com/' },
-          { name: 'Elite Gutters',             url: 'https://elitegutters.exteriorservice.net/' },
-          { name: 'Preservation Monument',     url: 'https://preservationmonumentco.com/' },
-          { name: 'Old National Bank',         url: 'https://www.oldnational.com/' },
-          { name: 'Tyson Motor',               url: 'https://www.tysonmotor.com/' },
-          { name: 'Darcy Motors',              url: 'http://www.darcymotors.com' },
-          { name: "Bedrock's Bar",             url: 'http://www.bedrocksbar.com/' },
-          { name: 'Barber Louie',              url: 'https://barberlouie.com/' },
-          { name: 'Morning Star Mission',      url: 'https://morningstarmission.org/' },
-          { name: 'Will-Grundy BTC',           url: 'https://willgrundybtc.com/' },
-          { name: "Coey's Closet",             url: 'http://www.coeyscloset.com/' },
-          { name: "Cemeno's Pizza",            url: 'https://cemenospizza.com/' },
-          { name: 'Creative Powder Coatings',  url: 'https://creativepowdercoatings.com/' },
-          { name: 'HH Roofing',                url: 'https://www.hhroofing-il.com/' },
-          { name: 'Trademark Exteriors',       url: 'https://www.trademark-exteriors.com/' },
-          { name: 'Shorewood Home & Auto',     url: 'http://www.shorewoodhomeandauto.com/' },
-          { name: 'Dale AC',                   url: 'https://www.facebook.com/Dale-AC-777879828923044/' },
-          { name: 'Beaver Rub Spice Co.',      url: 'https://www.beaverrubspicecompany.com/' },
-          { name: 'Fred C. Dames',             url: 'http://fredcdames.com/' },
-          { name: 'Window World Joliet',       url: 'https://windowworldjoliet.com/' },
-          { name: 'Diaz Flooring',             url: 'https://www.facebook.com/DiazFlooringInc/' },
-          { name: 'Trinity Christian',         url: 'https://www.trinitychristian.info/' },
-          { name: 'Nikos Catering',            url: 'https://nikoscateringjoliet.com/' },
-          { name: 'WCCCC',                     url: 'https://wcccc.net/' }
-        ];
 
         var grid = document.getElementById('sponsors-grid');
         if (!grid) return;
 
-        sponsors.forEach(function (sponsor) {
+        /* sponsors are passed in from the config fetch above */
+        window._renderSponsors = function (sponsors) {
 
-          /* Anchor — the whole tile is clickable */
-          var tile       = document.createElement('a');
-          tile.className = 'sponsor-tile';
-          tile.href      = sponsor.url;
-          tile.target    = '_blank';
-          tile.rel       = 'noopener noreferrer';
-          tile.setAttribute('aria-label', sponsor.name);
+          if (!sponsors || !sponsors.length) return;
 
-          /* Sponsor name text */
-          var label       = document.createElement('span');
-          label.className = 'sponsor-tile__name';
-          label.textContent = sponsor.name;
+          sponsors.forEach(function (sponsor) {
 
-          tile.appendChild(label);
-          grid.appendChild(tile);
+            var tile         = document.createElement('a');
+            tile.className   = 'sponsor-tile';
+            tile.href        = sponsor.url;
+            tile.target      = '_blank';
+            tile.rel         = 'noopener noreferrer';
+            tile.setAttribute('aria-label', sponsor.name);
 
-        });
+            var label         = document.createElement('span');
+            label.className   = 'sponsor-tile__name';
+            label.textContent = sponsor.name;
+
+            tile.appendChild(label);
+            grid.appendChild(tile);
+
+          });
+
+        };
 
       }());
 
